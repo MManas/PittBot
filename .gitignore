@@ -1,0 +1,17 @@
+/node_modules/**
+!/node_modules/.gitkeep
+/pgh/**
+!/pgh/.gitkeep
+/knights/**
+!/knights/.gitkeep
+/knightslive/**
+!/knightslive/.gitkeep
+/pghlive/**
+!/pghlive/.gitkeep
+/steam/**
+!/steam/.gitkeep
+botSettings.json
+config.json
+mutes.json
+package.json
+package-lock.json
