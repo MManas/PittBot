@@ -1,0 +1,1 @@
+this folder contains text files with the steam information of users. there are 2 files per user. both files names start with the discord user's id. for example, let the id be 1234. the 2 files would be 1234id.txt and 1234url.txt
