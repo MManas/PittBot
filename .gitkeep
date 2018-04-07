@@ -1,0 +1,21 @@
+botSettings.json
+{
+"token": "",
+"prefix": "",
+"faceittoken": "",
+"twitch1": "",
+"twitch2": "",
+"knightscheck": "",
+"pghcheck": ""
+}
+config.json
+{
+    "accountName": "",
+    "password": "",
+    "sharedSecret" : "",
+    "identitySecret": "",
+    "ownerID": ""
+}
+mutes.json
+{}
+

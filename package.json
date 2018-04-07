@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "ffmpeg-binaries": "^3.2.2-3",
+    "node-opus": "^0.2.7",
+    "request": "^2.85.0",
+    "requestretry": "^1.13.0",
+    "steam-totp": "^2.0.1",
+    "steam-tradeoffer-manager": "^2.9.3",
+    "steam-user": "^3.25.2",
+    "steamcommunity": "^3.34.1",
+    "steamid": "^1.1.0",
+    "twitch-api-v5": "^2.0.2"
+  }
+}
