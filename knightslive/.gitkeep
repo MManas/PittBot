@@ -1,0 +1,4 @@
+This directory contains files keeping track if a user was live during the previous twitch check
+The file contains either yes or no
+The  text file name format is waslive followed by the twitch username
+If the twitch username was abcd, the file would be wasliveabcd.txt
