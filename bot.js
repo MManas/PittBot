@@ -18,8 +18,8 @@ const TradeOfferManager = require('steam-tradeoffer-manager');
 var isconnected = false;
 var stmid = SteamCommunity.SteamID;
 var twitchpoll = null;
-var FaceIt = require('./FaceIt.js');
-var faceit = new FaceIt();
+var MatchHandler = require('./MatchHandler.js');
+
 
 
 const community = new SteamCommunity();
@@ -272,7 +272,7 @@ bot.on("message", async message => {
 
   
   
-  
+
 
   
 
