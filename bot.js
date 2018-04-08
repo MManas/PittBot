@@ -18,8 +18,8 @@ const TradeOfferManager = require('steam-tradeoffer-manager');
 var isconnected = false;
 var stmid = SteamCommunity.SteamID;
 var twitchpoll = null;
-var request = require('requestretry');
-var hubusers = [];
+var FaceIt = require('./FaceIt.js');
+var faceit = new FaceIt();
 
 
 const community = new SteamCommunity();
