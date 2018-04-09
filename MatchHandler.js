@@ -6,7 +6,9 @@ var hid = require('./botSettings.json').hubid;
 var request = require('requestretry');
 var faceitcategory = require('./botSettings.json').faceitcategory;
 var faceitpoll;
-
+function checkmatches(){
+    
+}
 
 module.exports = class MatchHandler{
     constructor(b){
@@ -53,25 +55,23 @@ request(options, async function (error, response, body) {
  })
  matches.forEach(item => {
     bot.guilds.find("name", "Pittsburgh Knights").createChannel(item.t1n, "voice")
-    .then(channel => {
-        channel.setParent(faceitcategory);
-        channel.overwritePermissions(channel.guild.id, {CONNECT: false});
+    .then(async channel => {
+        await channel.setParent(faceitcategory);
+        await channel.overwritePermissions(channel.guild.id, {CONNECT: false});
     })
     .catch(error => {
 
     });
     bot.guilds.find("name", "Pittsburgh Knights").createChannel(item.t2n, "voice")
-    .then(channel => {
-        channel.setParent(faceitcategory);
-        channel.overwritePermissions(channel.guild.id, {CONNECT: false});
+    .then(async channel => {
+        await channel.setParent(faceitcategory);
+        await channel.overwritePermissions(channel.guild.id, {CONNECT: false});
     })
     .catch(error => {
 
     });
 })
-faceitpoll = setInterval(function(){
-    
-}, 30000);
+
 });
     }
 }
