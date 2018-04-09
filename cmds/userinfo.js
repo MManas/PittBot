@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
       .addField("Created At", message.author.createdAt)
       .addField("Steam Trade URL", tradeurl);
 
-     
+
       return message.channel.send(embed);
 
 }

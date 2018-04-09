@@ -19,6 +19,7 @@ var isconnected = false;
 var stmid = SteamCommunity.SteamID;
 var twitchpoll = null;
 var MatchHandler = require('./MatchHandler.js');
+var mhandler;
 
 
 
@@ -249,6 +250,8 @@ bot.on("ready", async () => {
   }, 60000);
 
 
+
+mhandler = new MatchHandler(bot);
 
   
 });
