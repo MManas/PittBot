@@ -56,8 +56,6 @@ function checkmatches(){
             }
             
         }
-        console.log(checkedmatches);
-console.log('---------------------------------------------------------');
         for(var i = 0; i < checkedmatches.length; i++){
             matches.push(checkedmatches[i]);
         }
@@ -88,7 +86,7 @@ console.log('---------------------------------------------------------');
     });
 }
 
-module.exports = class MatchHandler{
+module.exports = class MatchHandlerBronze{
     constructor(b){
         bot = b;
         voip = bot.channels.find("name", "Auto Voice Finder");

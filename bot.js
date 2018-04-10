@@ -39,6 +39,7 @@ const logOnOptions = {
 }
 
 client.logOn(logOnOptions);
+bot.login(botSettings.token);
 
 client.on('loggedOn', () => {
     console.log("Steam Service Connected");
@@ -51,7 +52,7 @@ client.on('webSession', (sessionid, cookies) => {
     community.setCookies(cookies);
     community.startConfirmationChecker(10000, config.identitySecret);
     isconnected = true;
-    bot.login(botSettings.token);
+    
     
 });
 
@@ -250,7 +251,7 @@ bot.on("ready", async () => {
   }, 60000);
 
 
-mhandler = new MatchHandler(bot);
+mhandler = new MatchHandlerBronze(bot);
 
   
 });
