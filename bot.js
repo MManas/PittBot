@@ -250,7 +250,6 @@ bot.on("ready", async () => {
   }, 60000);
 
 
-
 mhandler = new MatchHandler(bot);
 
   
@@ -302,7 +301,6 @@ bot.on("message", async message => {
   
   
   
-
 
 
 });
