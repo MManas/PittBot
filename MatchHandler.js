@@ -56,28 +56,31 @@ function checkmatches(){
             }
             
         }
-
-        matches.concat(checkedmatches);
-        for(var i = 0; i < matches.length; i++){
-            if(!bot.channels.find("name", matches[i].t1n) && !bot.channels.find("name", matches[i].t2n)){
-                bot.guilds.find("name", "Pittsburgh Knights").createChannel(matches[i].t1n, "voice")
-        .then(async channel => {
-        await channel.setParent(faceitcategory);
-        await channel.overwritePermissions(channel.guild.id, {CONNECT: false});
-         })
-        .catch(error => {
-
-         });
-        bot.guilds.find("name", "Pittsburgh Knights").createChannel(matches[i].t2n, "voice")
-        .then(async channel => {
-        await channel.setParent(faceitcategory);
-        await channel.overwritePermissions(channel.guild.id, {CONNECT: false});
-        })
-        .catch(error => {
-
-        });
-            }
+        console.log(checkedmatches);
+console.log('---------------------------------------------------------');
+        for(var i = 0; i < checkedmatches.length; i++){
+            matches.push(checkedmatches[i]);
         }
+      matches.forEach(async item => {
+        if(!bot.channels.find("name", item.t1n) && !bot.channels.find("name", item.t2n)){
+            bot.guilds.find("name", "Pittsburgh Knights").createChannel(item.t1n, "voice")
+    .then(async channel => {
+    await channel.setParent(faceitcategory);
+    await channel.overwritePermissions(channel.guild.id, {CONNECT: false});
+     })
+    .catch(error => {
+
+     });
+    bot.guilds.find("name", "Pittsburgh Knights").createChannel(item.t2n, "voice")
+    .then(async channel => {
+    await channel.setParent(faceitcategory);
+    await channel.overwritePermissions(channel.guild.id, {CONNECT: false});
+    })
+    .catch(error => {
+
+    });
+        }
+      })
 
 
 
