@@ -1,11 +1,38 @@
+
+
 var matches = [];
 var bot;
 var voip;
 var token = require('./botSettings.json').faceittoken;
 var hid = require('./botSettings.json').hubid;
 var request = require('requestretry');
+var fs = require('fs');
 var faceitcategory = require('./botSettings.json').faceitcategory;
 var faceitpoll;
+var usercheck;
+function sortusers(){
+    var users = bot.channels.find("name", "Auto Voice Finder").members.array();
+    //console.log(users[0].user.id);
+    users.forEach(async user => {
+        var usersteam = fs.readFileSync('./steam/' + user.user.id + 'id.txt', 'utf8');
+        try{
+        matches.forEach(async match => {
+            match.t1p.forEach(async team1 => {
+               if(team1 == usersteam){
+                   user.setVoiceChannel(bot.channels.find("name", match.t1n).id);
+               }
+            })
+            match.t2p.forEach(async team2 => {
+                if(team2 == usersteam){
+                user.setVoiceChannel(bot.channels.find("name", match.t2n).id);
+                }
+            })
+        })
+    }catch(error){
+        
+    }
+    })
+}
 function checkmatches(){
     var checkedmatches = [];
     var options = { method: 'GET',
@@ -65,8 +92,11 @@ function checkmatches(){
             }
             
         }
+          
         for(var i = 0; i < checkedmatches.length; i++){
-            matches.push(checkedmatches[i]);
+           
+                matches.push(checkedmatches[i]);
+            
         }
       matches.forEach(async item => {
         if(!bot.channels.find("name", item.t1n) && !bot.channels.find("name", item.t2n)){
@@ -88,6 +118,8 @@ function checkmatches(){
     });
         }
       })
+      
+      
 
 
 
@@ -135,6 +167,8 @@ request(options, async function (error, response, body) {
         t1p: team1,
         t2p: team2
     }
+
+   
     matches.push(j);
     
  })
@@ -162,5 +196,12 @@ request(options, async function (error, response, body) {
 faceitpoll = setInterval(function(){
     checkmatches();
 }, 30000);
+usercheck = setInterval(function(){
+    try{
+    sortusers();
+    }catch(error){
+        
+    }
+}, 2000);
     }
 }

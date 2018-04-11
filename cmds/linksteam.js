@@ -2,14 +2,15 @@ var fs = require('fs');
 var SteamID = require('steamid');
 module.exports.run = async (bot, message, args, manager) => {
   var steamid = null;
+  if(!args[0]){
+    return message.reply("Please provide your trade url. You can find it here https://steamcommunity.com/id/me/tradeoffers/privacy , and link it using the command !linksteam tradeurlhere");
+  }
   var token = args[0].indexOf('&token=');
     if(message.channel.id != 428305244586508308){
       return message.reply("Please use the channel <#428305244586508308> to link your Steam Trade URL!");
     }
 
-    if(!args[0]){
-      return message.reply("Please provide your trade url. You can find it here https://steamcommunity.com/id/me/tradeoffers/privacy , and link it using the command !linksteam tradeurlhere");
-    }
+    
     
      if(args[0].indexOf("https://steamcommunity.com/tradeoffer/new/?partner=") != 0){
       return message.reply("⚠️ ⚠️ ⚠️ Please Provide a Valid Trade URL! You Can Find It Here ⚠️ ⚠️ ⚠️  -> https://steamcommunity.com/id/me/tradeoffers/privacy");
