@@ -98,6 +98,8 @@ function checkmatches(){
                 matches.push(checkedmatches[i]);
             
         }
+
+    
       matches.forEach(async item => {
         if(!bot.channels.find("name", item.t1n) && !bot.channels.find("name", item.t2n)){
             bot.guilds.find("name", "Pittsburgh Knights").createChannel(item.t1n, "voice")
