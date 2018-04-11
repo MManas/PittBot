@@ -18,8 +18,8 @@ const TradeOfferManager = require('steam-tradeoffer-manager');
 var isconnected = false;
 var stmid = SteamCommunity.SteamID;
 var twitchpoll = null;
-var MatchHandler = require('./MatchHandler.js');
-var mhandler;
+var MatchHandlerBronze = require('./MatchHandlerBronze.js');
+var mhandlerbronze;
 
 
 
@@ -251,7 +251,7 @@ bot.on("ready", async () => {
   }, 60000);
 
 
-mhandler = new MatchHandlerBronze(bot);
+mhandlerbronze = new MatchHandlerBronze(bot);
 
   
 });

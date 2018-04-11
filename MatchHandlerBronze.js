@@ -50,8 +50,17 @@ function checkmatches(){
             if(islive == true){
                 checkedmatches.splice(checkedindex,1);
             }else{
+                try{
                 bot.channels.find("name", matches[i].t1n).delete();
-                bot.channels.find("name", matches[i].t2n).delete();
+                }catch(error){
+
+                }
+                try{
+                    bot.channels.find("name", matches[i].t2n).delete();
+                }catch(error){
+                    
+                }
+                
                 matches.splice(i, 1);
             }
             
