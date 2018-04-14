@@ -1,4 +1,8 @@
 {
+  "name": "pittbot",
+  "version": "1.0.0",
+  "description": "Discord bot for the Pittsburgh Knights",
+  "main": "bot.js",
   "dependencies": {
     "discord.js": "^11.3.2",
     "ffmpeg-binaries": "^3.2.2-3",
@@ -7,9 +11,23 @@
     "requestretry": "^1.13.0",
     "steam-totp": "^2.0.1",
     "steam-tradeoffer-manager": "^2.9.3",
-    "steam-user": "^3.25.2",
     "steamcommunity": "^3.34.1",
     "steamid": "^1.1.0",
+    "steam-user": "^3.25.2",
     "twitch-api-v5": "^2.0.2"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MManas/PittBot.git"
+  },
+  "author": "Manas Mahajan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MManas/PittBot/issues"
+  },
+  "homepage": "https://github.com/MManas/PittBot#readme"
 }
