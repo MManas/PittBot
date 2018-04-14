@@ -2,6 +2,9 @@ var fs = require('fs');
 var SteamID = require('steamid');
 module.exports.run = async (bot, message, args, manager) => {
   var steamid = null;
+  if(message.channel.id != '428305244586508308'){
+    return message.reply("Please use the <#428305244586508308> channel for this command!");
+  }
   if(!args[0]){
     return message.reply("Please provide your trade url. You can find it here https://steamcommunity.com/id/me/tradeoffers/privacy , and link it using the command !linksteam tradeurlhere");
   }
