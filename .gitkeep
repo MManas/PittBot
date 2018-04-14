@@ -21,6 +21,8 @@ config.json
 }
 mutes.json
 {}
+restarttime.txt
+contains last restart time
 lastcommand.txt
-contains name of last used command
+contains the last command used and its timestamp
 

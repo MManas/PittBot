@@ -255,11 +255,15 @@ bot.on("ready", async () => {
 
 
 //mhandlerbronze = new MatchHandlerBronze(bot);
-var previouscommand = fs.readFileSync('./lastcommand.txt', 'utf8');
-if(previouscommand == 'restart'){
+var previouscommand = fs.readFileSync('./lastcommand.txt', 'utf8').split(" ");
+if(previouscommand[0] == 'restart'){
   bot.channels.find("id", botchannelid).send("Bot Has Restarted!");
 }
 
+try{
+  fs.writeFileSync('./restarttime.txt', Date.now());
+  }catch(error){
+  }
 
   
 });
@@ -301,7 +305,10 @@ bot.on("message", async message => {
   let cmd = bot.commands.get(command.slice(prefix.length));
   if(cmd){
   var cmdname = command.slice(prefix.length);
-  fs.writeFileSync('./lastcommand.txt', cmdname);
+  try{
+  fs.writeFileSync('./lastcommand.txt', cmdname + " " + Date.now());
+  }catch(error){
+  }
   if(cmdname == 'giveaway' || cmdname == 'linksteam'){
     cmd.run(bot,message,args,manager);
   }else{
