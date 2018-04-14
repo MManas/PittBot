@@ -21,4 +21,6 @@ config.json
 }
 mutes.json
 {}
+lastcommand.txt
+contains name of last used command
 
