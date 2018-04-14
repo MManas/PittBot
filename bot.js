@@ -20,6 +20,9 @@ var stmid = SteamCommunity.SteamID;
 var twitchpoll = null;
 var MatchHandlerBronze = require('./MatchHandlerBronze.js');
 var mhandlerbronze;
+var botchannelid = botSettings.bot_logs;
+
+
 
 
 
@@ -252,6 +255,8 @@ bot.on("ready", async () => {
 
 
 mhandlerbronze = new MatchHandlerBronze(bot);
+
+bot.channels.find("id", botchannelid).send("Bot Has Restarted!");
 
   
 });

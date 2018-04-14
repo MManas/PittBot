@@ -6,7 +6,10 @@ botSettings.json
 "twitch1": "",
 "twitch2": "",
 "knightscheck": "",
-"pghcheck": ""
+"pghcheck": "",
+"hubid": "",
+"faceitcategory": "",
+"bot_logs": ""
 }
 config.json
 {
