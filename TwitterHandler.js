@@ -1,8 +1,21 @@
 var Twitter = require('twitter');
+var discordbot;
+var config = require('./botSettings.json');
  
 var client = new Twitter({
-  consumer_key: 'x40PRLKMia1fuvctQPZxwmnmo',
-  consumer_secret: 'i3ETI9o5HmXS4bVzbkAIkq1zhpQMvCe7l9tYymkgtenNqv84AQ',
-  access_token_key: '949835403288293376-kG6Idg78FG9uK1rg8oTQFKeKx2IV6Dg',
-  access_token_secret: 'L5laUAyBgsGqt8zd2ww81WLK6uovws72IGZbJpIwcRMTw'
+  consumer_key: config.twitterkey1,
+  consumer_secret: config.twitterkey2,
+  access_token_key: config.twitterkey3,
+  access_token_secret: config.twitterkey4
 });
+var stream;
+
+module.exports = class TwitterHandler{
+  constructor(bot){
+    discordbot = bot;
+    stream = client.stream('statuses/filter', {follow: '3140083173'});
+  stream.on('data', function(event) {
+  discordbot.channels.find("name", "knights-announcements").send("https://www.twitter.com/knightsgg/status/" + event.id_str);
+});
+  }
+}

@@ -21,6 +21,8 @@ var twitchpoll = null;
 var MatchHandlerBronze = require('./MatchHandlerBronze.js');
 var mhandlerbronze;
 var botchannelid = botSettings.bot_logs;
+var Twitter = require('./TwitterHandler.js');
+var twitterhandler;
 
 
 
@@ -255,6 +257,7 @@ bot.on("ready", async () => {
 
 
 //mhandlerbronze = new MatchHandlerBronze(bot);
+twitterhandler = new Twitter(bot);  
 var previouscommand = fs.readFileSync('./lastcommand.txt', 'utf8').split(" ");
 if(previouscommand[0] == 'restart'){
   bot.channels.find("id", botchannelid).send("Bot Has Restarted!");
