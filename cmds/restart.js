@@ -1,5 +1,5 @@
 var exec = require('child_process').exec;
-const channelid = require('./botSettings.json').bot_logs;
+const channelid = require('../botSettings.json').bot_logs;
 
 
 module.exports.run =  (bot, message, args) => {
