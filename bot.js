@@ -267,7 +267,10 @@ try{
   fs.writeFileSync('./restarttime.txt', Date.now());
   }catch(error){
   }
-
+  try{
+    fs.writeFileSync('./lastcommand.txt', "none 0");
+    }catch(error){
+    }
   
 });
 
