@@ -4,10 +4,16 @@ var fs = require('fs');
 module.exports.run = async (bot, message, args) => {
 
   var tradeurl = "";
+  var steamid = "";
     try{
-      tradeurl = fs.readFileSync('./steam/' + message.author.id + '.txt', 'utf8');
+      tradeurl = fs.readFileSync('./steam/' + message.author.id + 'url.txt', 'utf8');
     }catch(error){
       tradeurl = 'None';
+    }
+    try{
+      steamid = fs.readFileSync('./steam/' + message.author.id + 'id.txt', 'utf8');
+    }catch(error){
+      steamid = 'None';
     }
 
     let embed = new Discord.RichEmbed()
@@ -17,7 +23,8 @@ module.exports.run = async (bot, message, args) => {
       .addField("Full Username", `${message.author.username}#${message.author.discriminator}`)
       .addField("ID", message.author.id)
       .addField("Created At", message.author.createdAt)
-      .addField("Steam Trade URL", tradeurl);
+      .addField("Steam Trade URL", tradeurl)
+      .addField("SteamID", steamid);
 
 
       return message.channel.send(embed);
