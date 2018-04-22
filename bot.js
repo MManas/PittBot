@@ -257,7 +257,7 @@ bot.on("ready", async () => {
 
 
 //mhandlerbronze = new MatchHandlerBronze(bot);
-twitterhandler = new Twitter(bot);  
+//twitterhandler = new Twitter(bot);  
 var previouscommand = fs.readFileSync('./lastcommand.txt', 'utf8').split(" ");
 if(previouscommand[0] == 'restart'){
   bot.channels.find("id", botchannelid).send("Bot Has Restarted!");
