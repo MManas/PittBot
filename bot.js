@@ -23,6 +23,7 @@ var mhandlerbronze;
 var botchannelid = botSettings.bot_logs;
 var Twitter = require('./TwitterHandler.js');
 var twitterhandler;
+var exec = require('child_process').exec;
 
 
 
@@ -328,3 +329,14 @@ bot.on("message", async message => {
 
 });
 
+process.on('uncaughtException', (err) => {
+  exec('pm2 restart bot', function(error, stdout, stderr) {
+           
+  });
+});
+
+process.on('unhandledRejection', (x,d) => {
+  exec('pm2 restart bot', function(error, stdout, stderr) {
+           
+  });
+})
