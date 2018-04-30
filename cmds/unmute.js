@@ -13,7 +13,6 @@ module.exports.run = async (bot, message, args) => {
     await toMute.removeRole(role);
     message.reply("The User Has Been Unmuted!");
     return;
-
 }
 
 module.exports.help = {
