@@ -99,84 +99,84 @@ manager.on('newOffer', (offer) => {
 
 
 
-function pghtwitch(){
-    var filenames = fs.readdirSync('./pgh');
-    filenames.forEach(item => {
-      if(item == '.gitkeep'){
-        return;
-      }
-      fs.readFile('./pgh/' + item, 'utf8', (err, data) => {
-        twitch2.streams.channel({channelID: data, stream_type: "live"}, (err, res) => {
-          if(typeof res == 'undefined'){
-            return;
-          }
-          if(res.stream == null){
-            fs.writeFile('./pghlive/waslive' + item, 'no', (err) => {
+// function pghtwitch(){
+//     var filenames = fs.readdirSync('./pgh');
+//     filenames.forEach(item => {
+//       if(item == '.gitkeep'){
+//         return;
+//       }
+//       fs.readFile('./pgh/' + item, 'utf8', (err, data) => {
+//         twitch2.streams.channel({channelID: data, stream_type: "live"}, (err, res) => {
+//           if(typeof res == 'undefined'){
+//             return;
+//           }
+//           if(res.stream == null){
+//             fs.writeFile('./pghlive/waslive' + item, 'no', (err) => {
 
-            })
-          }else{
-            if(res.stream != null){
-              var isStreaming = 'yes';
-              fs.readFile('./pghlive/waslive' + item, 'utf8', (err, data) => {
-                if(data == 'no' && isStreaming == 'yes'){
-                  bot.channels.find("name", "pgh-tv").send(item.substring(0,item.indexOf('.txt')) + " is now live on Twitch! https://twitch.tv/" + item.substring(0,item.indexOf('.txt')));
-                  fs.writeFile('./pghlive/waslive' + item, 'yes', (err) => {
+//             })
+//           }else{
+//             if(res.stream != null){
+//               var isStreaming = 'yes';
+//               fs.readFile('./pghlive/waslive' + item, 'utf8', (err, data) => {
+//                 if(data == 'no' && isStreaming == 'yes'){
+//                   bot.channels.find("name", "pgh-tv").send(item.substring(0,item.indexOf('.txt')) + " is now live on Twitch! https://twitch.tv/" + item.substring(0,item.indexOf('.txt')));
+//                   fs.writeFile('./pghlive/waslive' + item, 'yes', (err) => {
 
-                  }) 
-                }else{
-                  fs.writeFile('./pghlive/waslive' + item, 'yes', (err) => {
+//                   }) 
+//                 }else{
+//                   fs.writeFile('./pghlive/waslive' + item, 'yes', (err) => {
 
-                  }) 
-                }
-              })
-            }
-          }
-        })
-      })
-    })
+//                   }) 
+//                 }
+//               })
+//             }
+//           }
+//         })
+//       })
+//     })
     
     
 
-}   
-function knightstwitch(){
-  var filenames = fs.readdirSync('./knights');
-  filenames.forEach(item => {
-    if(item == '.gitkeep'){
-      return;
-    }
-    fs.readFile('./knights/' + item, 'utf8', (err, data) => {
-      twitch.streams.channel({channelID: data, stream_type: "live"}, (err, res) => {
-        if(typeof res == 'undefined'){
-          return;
-        }
-        if(res.stream == null){
-          fs.writeFile('./knightslive/waslive' + item, 'no', (err) => {
+// }   
+// function knightstwitch(){
+//   var filenames = fs.readdirSync('./knights');
+//   filenames.forEach(item => {
+//     if(item == '.gitkeep'){
+//       return;
+//     }
+//     fs.readFile('./knights/' + item, 'utf8', (err, data) => {
+//       twitch.streams.channel({channelID: data, stream_type: "live"}, (err, res) => {
+//         if(typeof res == 'undefined'){
+//           return;
+//         }
+//         if(res.stream == null){
+//           fs.writeFile('./knightslive/waslive' + item, 'no', (err) => {
 
-          })
-        }else{
-          if(res.stream != null){
-            var isStreaming = 'yes';
-            fs.readFile('./knightslive/waslive' + item, 'utf8', (err, data) => {
-              if(data == 'no' && isStreaming == 'yes'){
-                bot.channels.find("name", "knights-tv").send(item.substring(0,item.indexOf('.txt')) + " is now live on Twitch! https://twitch.tv/" + item.substring(0,item.indexOf('.txt')));
-                fs.writeFile('./knightslive/waslive' + item, 'yes', (err) => {
+//           })
+//         }else{
+//           if(res.stream != null){
+//             var isStreaming = 'yes';
+//             fs.readFile('./knightslive/waslive' + item, 'utf8', (err, data) => {
+//               if(data == 'no' && isStreaming == 'yes'){
+//                 bot.channels.find("id", "251258814857216000").send(item.substring(0,item.indexOf('.txt')) + " is now live on Twitch! https://twitch.tv/" + item.substring(0,item.indexOf('.txt')));
+//                 fs.writeFile('./knightslive/waslive' + item, 'yes', (err) => {
 
-                }) 
-              }else{
-                fs.writeFile('./knightslive/waslive' + item, 'yes', (err) => {
+//                 }) 
+//               }else{
+//                 fs.writeFile('./knightslive/waslive' + item, 'yes', (err) => {
 
-                }) 
-              }
-            })
-          }
-        }
-      })
-    })
-  })
+//                 }) 
+//               }
+//             })
+//           }
+//         }
+//       })
+//     })
+//   })
   
   
 
-}   
+// }   
 
 
 
@@ -252,8 +252,8 @@ bot.on("ready", async () => {
 
 
   twitchpoll = setInterval(function(){
-      pghtwitch();
-      knightstwitch();
+      //pghtwitch();
+      //knightstwitch();
   }, 60000);
 
 

@@ -11,8 +11,11 @@ module.exports.run = async (bot, message, args) => {
         message.reply("You Are Not A TwitchPGH Mod!");
         return;
     }
-    if(args[0] != 'add' && args[0] != 'remove'){
+    if(args[0] != 'add' && args[0] != 'remove' && args[0] != 'enable' && args[0] != 'disable'){
         return message.reply("You did not specify add or remove.\nCommand Syntax: !pghtwitch add/remove twitchusername");
+    }
+    if(args[0] == 'enable' || args[0] == 'disable'){
+        
     }
     if(!args[1]){
         return message.reply("You did not specify a username.\nCommand Syntax: !pghtwitch add/remove twitchusername");
